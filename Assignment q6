@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <math.h>
+
+
+double calculateGrowthRate(double initial, double final, double time)
+{
+    if (initial <= 0 || final <= 0 || time <= 0)
+    {
+        printf("Error: Initial population, final population, and time must be positive.\n");
+        return -1;  // Error indicator
+    }
+
+    
+    double growthRate = (log(final) - log(initial)) / time;
+
+    return growthRate;
+}
+
+int main()
+{
+    double initial, final_pop, time, rate;
+
+    printf(" Bacterial Growth Rate Calculator \n");
+
+    printf("Enter initial population (N0): ");
+    scanf("%lf", &initial);
+
+    printf("Enter final population (Nt): ");
+    scanf("%lf", &final_pop);
+
+    printf("Enter time (in hours): ");
+    scanf("%lf", &time);
+
+    rate = calculateGrowthRate(initial, final_pop, time);
+
+    if (rate != -1)
+    {
+        printf("\nGrowth Rate (μ) = %.4f per hour\n", rate);
+        printf("This means the population increases by a factor of e^%.4f every hour.\n", rate);
+    }
+
+    return 0;
+}
