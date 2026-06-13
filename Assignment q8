@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    char dna[500];   
+    int i, length;
+    int countG = 0, countC = 0;
+
+    printf(" DNA GC-Content Calculator \n");
+    printf("Enter DNA sequence (A, T, G, C): ");
+    scanf("%s", dna);
+
+    length = strlen(dna);
+
+    
+    for(i = 0; i < length; i++)
+    {
+        if(dna[i] == 'G' || dna[i] == 'g')
+            countG++;
+        else if(dna[i] == 'C' || dna[i] == 'c')
+            countC++;
+    }
+
+   
+    float gc_content = ((float)(countG + countC) / length) * 100;
+
+    
+    printf("\n--- Results ---\n");
+    printf("DNA Sequence  : %s\n", dna);
+    printf("Length        : %d bases\n", length);
+    printf("G bases       : %d\n", countG);
+    printf("C bases       : %d\n", countC);
+    printf("GC-Content    : %.2f%%\n", gc_content);
+
+    return 0;
+}
