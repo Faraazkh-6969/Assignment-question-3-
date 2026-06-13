@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int main()
+{
+    int n, i;
+    float mass, volume, concentration;
+
+    printf(" Concentration Calculator (C = m / V) \n");
+    
+    printf("How many samples do you want to calculate? ");
+    scanf("%d", &n);
+
+    printf("\n");
+
+    for(i = 1; i <= n; i++)
+    {
+        printf(" Sample %d \n", i);
+        
+        printf("Enter mass (m) in grams: ");
+        scanf("%f", &mass);
+        
+        printf("Enter volume (V) in liters: ");
+        scanf("%f", &volume);
+
+        if(volume == 0)
+        {
+            printf("Error: Volume cannot be zero!\n\n");
+            continue; 
+        }
+
+        concentration = mass / volume;
+
+        printf("Concentration of Sample %d = %.4f g/L\n\n", i, concentration);
+    }
+
+    printf("Thank you for using the calculator!\n");
+
+    return 0;
+}
